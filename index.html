@@ -1,273 +1,123 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sean Healy's Portfolio</title>
-    <style>
-    * {
-        box-sizing: border-box;
-    }
-    
-    body {
-        margin: 0;
-        padding: 0;
-        font-family: 'Arial', sans-serif;
-        color: #f5f5f5;
-        line-height: 1.6;
-        background-color: #1a3a6a;
-    }
-    
-    .header {
-        height: 75vh;
-        position: relative;
-        color: white;
-        overflow: hidden;
-    }
-    
-    .header-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: 0;
-    }
-    
-    .header-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.1);
-        z-index: 1;
-    }
-
-    
-    .foreground-person {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        z-index: 3;
-        pointer-events: none;
-    }
-    
-    .name-container {
-        position: fixed;
-        top: 10%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-        text-align: center;
-        width: 100%;
-        pointer-events: none;
-    }
-    
-    h1 {
-        font-size: 7rem;
-        margin: 0;
-        color: #f5f5f5;
-        text-shadow: 
-            3px 0 0 #000,
-            -3px 0 0 #000,
-            0 3px 0 #000,
-            0 -3px 0 #000;
-    }
-
-.subtitle {
-    position: absolute;
-    top: 0%;
-    right: 0%;
-    width: 25%;
-    min-height: 50%;
-    max-height: 100%;
-    font-size: 1.5rem;
-    color: #f5f5f5;
-    background: rgba(0,0,0,0.3);
-    padding: 10px;
-    text-shadow: 
-        2px 0 0 #000,
-        -2px 0 0 #000,
-        0 2px 0 #000,
-        0 -2px 0 #000;
-    z-index: 2;
-    pointer-events: none;
-    text-align: left;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1.7vh;
-}
-
-.subtitle hr {
-    width: 100%;
-    border: none;
-    height: 1px;
-    background-color: rgba(255,255,255,0.5);
-    margin: 0px 0;
-}
-        
-.project-section {
-        display: flex;
-        min-height: 50vh;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-        position: relative;
-        z-index: 3;
-        background-color: #1a3a6a;
-        overflow: hidden; /* Add this to contain the zoomed images */
-    }
-    
-    .image-half {
-        flex: 0 0 50%;
-        position: relative;
-        background-size: cover;
-        background-position: center;
-        overflow: hidden;
-        cursor: pointer;
-        transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95); /* Smoother transition */
-        transform-origin: center center; /* Ensures zoom happens from the center */
-        will-change: transform; /* Optimizes the animation */
-    }
-    
-    .image-half:hover {
-        transform: scale(1.1); /* Slightly stronger zoom */
-    }
-
-    .image-half::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0,0,0,0.3);
-        transition: all 0.5s ease;
-        z-index: 1; /* Ensure overlay stays above the image */
-    }
-    
-    .image-half:hover::before {
-        background: rgba(0,0,0,0);
-    }
-    
-    .content-half {
-        flex: 0 0 50%;
-        padding: 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        z-index: 3;
-        background-color: #1a3a6a;
-    }
-    
-    .project-title {
-        font-size: 2rem;
-        margin-bottom: 0px;
-        z-index: 3;
-        color: #f5f5f5;
-    }
-    
-    .project-description {
-        margin-bottom: 50px;
-        color: #d1e0ff;
-        z-index: 3;
-    }
-    
-    .content-btn {
-        padding: 12px 40px;
-        background-color: #4285f4;
-        color: white;
-        border: none;
-        border-radius: 0px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-decoration: none;
-        text-align: center;
-        align-self: center;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        left: 0px;
-        margin-bottom: 0px;
-    }
-    
-    .content-btn:hover {
-        background-color: #3367d6;
-        transform: scaleY(1.1);
-    }
-    
-    .project-section:nth-child(even) {
-        flex-direction: row-reverse;
-    }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sean Healy's Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="header">
-        <!-- Background image (full photo) -->
-        <img src=".\assets\halfshot.png" alt="Background" class="header-bg">
-        
-        <!-- Foreground image (transparent PNG of just you) -->
-        <img src=".\assets\foreground.png" alt="Foreground" class="foreground-person">
-        
-        <!-- Dark overlay -->
-        <div class="header-overlay"></div>
-        
-        <!-- Name (centered) -->
-        <div class="name-container">
-            <h1>Sean Healy</h1>
+  <div id="root"></div>
+
+  <!-- Load React, ReactDOM, and Babel -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Your React Component -->
+  <script type="text/babel">
+    const Portfolio = () => {
+      return (
+        <div className="portfolio-container">
+          <div className="header">
+            <img src="./assets/halfshot.png" alt="Background" className="header-bg" />
+            <img src="./assets/foreground.png" alt="Foreground" className="foreground-person" />
+            <div className="header-overlay"></div>
+            
+            <div className="fixed-name-container animate__animated animate__bounce">
+              <h1>Sean Healy</h1>
             </div>
-        
-        <!-- Subtitle (positioned independently to the left) -->
-        <div class="subtitle">
-        <hr>
-        <p>Aspiring software engineer and cybersecurity professional</p>
-        <hr>
-        <p>Student at Marquette University Majoring in Computer Science/Minoring in Marketing expecting to graduate in 2027</p>
-        <hr>
-        <p>Graphic Design Intern for the Marquette Athletics Department</p>
-        <hr>
-    </div>
-    </div>
-    
-    <!-- Project 1 -->
-    <div class="project-section">
-        <a href="https://5seansean.github.io/PacketBracket/" target="_blank" rel="noopener noreferrer" class="image-half" style="background-image: url('./assets/project1.png')"></a>
-        <div class="content-half">
-            <h2 class="project-title">Packet Sniffer Visualizer</h2>
-            <p class="project-description">
+            
+            <div className="info-panel">
+              <div className="info-card">
+                <p>Student at Marquette University Majoring in Computer Science/Minoring in Marketing expecting to graduate in 2027</p>
+              </div>
+              <div className="info-card">
+                <div className="info-card-button-container">
+                  <a 
+                    href="https://coursera.org/share/54db8a982d378cdeb253fec8df076ddd" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="info-card-image-btn" 
+                    style={{ backgroundImage: "url('assets/googlelogo.webp')" }}
+                  ></a>
+                </div>
+                <p>Aspiring software engineer and cybersecurity professional</p>
+              </div>
+              <div className="info-card">
+                <div className="info-card-button-container">
+                  <a 
+                    href="https://drive.google.com/drive/folders/1Gbjx4ZPOtYPgTNbAqOgvyilLNbcfseRf?usp=drive_link" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="info-card-image-btn" 
+                    style={{ backgroundImage: "url('assets/drivelogo.png')" }}
+                  ></a>
+                </div>
+                <p>Graphic Design Intern for the Marquette Athletics Department</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="project-section">
+            <a 
+              href="https://5seansean.github.io/PacketBracket/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="image-half" 
+              style={{ backgroundImage: "url('./assets/project1.png')" }}
+            ></a>
+            <div className="content-half">
+              <h2 className="project-title">Packet Sniffer Visualizer</h2>
+              <p className="project-description">
                 Serves the function of aggregating and visualizing network traffic data.
                 Utilizes Node.js, AMCHARTS, and two third-party APIs to provide real-time data visualization
                 with sleek, interactive elements. Just upload a PCAP file, and the app will process the file, filter all the packets with 
-            public IP addresses, make API calls to get GeoLocation data on those IPs, and then display the data on either a 3D or 2D map.          </p>
-            <a href="https://github.com/5SeanSean/PacketBracket" target="_blank" rel="noopener noreferrer" class="content-btn">GitHub Repository</a>
+                public IP addresses, make API calls to get GeoLocation data on those IPs, and then display the data on either a 3D or 2D map.
+              </p>
+              <a 
+                href="https://github.com/5SeanSean/PacketBracket" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="content-btn"
+              >
+                GitHub Repository
+              </a>
+            </div>
+          </div>
+          
+          <div className="project-section">
+            <a 
+              href="https://5seansean.github.io/Lava-Game/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="image-half" 
+              style={{ backgroundImage: "url('./assets/project2.png')" }}
+            ></a>
+            <div className="content-half">
+              <h2 className="project-title">Volcano Game</h2>
+              <p className="project-description">
+                A fun personal project to help build my experience with game and web development.
+                Definitely still in progress, but the game is playable and has a lot of potential.
+                This project definitely solidified my JavaScript and Object-Based design skills.
+              </p>
+              <a 
+                href="https://github.com/5SeanSean/Lava-Game" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="content-btn"
+              >
+                GitHub Repository
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
-    
-    <!-- Project 2 -->
-    <div class="project-section">
-        <a href="https://5seansean.github.io/Lava-Game/" target="_blank" rel="noopener noreferrer" class="image-half" style="background-image: url('./assets/project2.png')"></a>
-        <div class="content-half">
-            <h2 class="project-title">Volcano Game</h2>
-            <p class="project-description">
-                A fun personal project to help build my experience with game  and web development.
-               Definetly still in progress, but the game is playable and has a lot of potential.
-               This project definetly solidified my JavaScript and Object-Based design skills.
-            </p>
-            <a href="https://github.com/5SeanSean/Lava-Game" target="_blank" rel="noopener noreferrer" class="content-btn">GitHub Repository</a>
-        </div>
-    </div>
+      );
+    };
 
-    <script>
-        // No parallax script needed
-    </script>
+    // Render the component
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<Portfolio />);
+  </script>
 </body>
 </html>

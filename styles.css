@@ -1,0 +1,381 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #f5f5f5;
+    line-height: 1.6;
+    background-color: #1a3a6a;
+}
+
+.header {
+    height: 75vh;
+    position: relative;
+    color: white;
+    overflow: hidden;
+}
+
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    z-index: 1;
+}
+
+.foreground-person {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.fixed-name-container {
+    position: fixed;
+    top: 0vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    width: auto;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+h1 {
+    font-size: 7rem;
+    margin: 0;
+    color: #f5f5f5;
+    text-shadow: 
+        3px 0 0 #000,
+        -3px 0 0 #000,
+        0 3px 0 #000,
+        0 -3px 0 #000;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Right-side info panel */
+.info-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 33%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Individual info cards */
+.info-card {
+    flex: 1;
+    padding: 1.5rem 1.5rem 1.5rem 7rem;
+    font-size: 10rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Arrow container */
+.info-card-button-container {
+    position: absolute;
+    left: 0rem;
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+/* Arrow styling */
+.info-card-button-container::before {
+    content: '→';
+    position: absolute;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Image button (hidden by default) */
+.info-card-image-btn {
+    position: absolute;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    background-color: white;
+}
+
+/* ===== FIRST CARD (ORIGINAL HOVER EFFECT) ===== */
+.info-card:first-child:hover .info-card-button-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.info-card:first-child:hover .info-card-button-container::before {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.info-card:first-child:hover .info-card-image-btn {
+    display: none;
+}
+
+/* ===== OTHER CARDS (SQUARE EXPANSION EFFECT) ===== */
+.info-card:not(:first-child):hover .info-card-button-container {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.info-card:not(:first-child):hover .info-card-button-container::before {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+.info-card:not(:first-child):hover .info-card-image-btn {
+    opacity: 1;
+    width: 100px;
+    height: 100px;
+    left: 2rem;
+    background-size: contain;
+    background-color: transparent;
+}
+
+/* Updated Text Transition Effects */
+.info-card:not(:first-child) p {
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.info-card:not(:first-child):hover p {
+  opacity: 0;
+  transform: translateX(20px);
+  position: absolute;
+}
+
+.info-card:nth-child(2):hover::after {
+  content: "Google Cybersecurity Certification";
+  position: absolute;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 
+      1px 1px 2px #000,
+      -1px -1px 2px #000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease 0.3s forwards;
+}
+
+.info-card:nth-child(3):hover::after {
+  content: "Graphic Design Portfolio";
+  position: absolute;
+  right: 2rem;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 
+      1px 1px 2px #000,
+      -1px -1px 2px #000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Shared hover state */
+.info-card:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.info-card:last-child {
+    border-bottom: none;
+}
+
+.info-card p {
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1.4;
+    text-shadow: 
+        1px 1px 2px #000,
+        -1px -1px 2px #000;
+    z-index: 2;
+    position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .info-panel {
+        width: 30%;
+    }
+    .info-card p {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-panel {
+        width: 100%;
+        position: relative;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .info-card {
+        flex: 1 1 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-right: none;
+        padding-left: 5rem !important;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Project section styles */
+.project-section {
+    display: flex;
+    min-height: 50vh;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+    z-index: 4;
+    background-color: #1a3a6a;
+    overflow: hidden;
+}
+
+.image-half {
+    flex: 0 0 50%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.image-half:hover {
+    transform: scale(1.1);
+}
+
+.image-half::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.image-half:hover::before {
+    background: rgba(0,0,0,0);
+}
+
+.content-half {
+    flex: 0 0 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+    background-color: #1a3a6a;
+}
+
+.project-title {
+    font-size: 2rem;
+    margin-bottom: 0px;
+    z-index: 3;
+    color: #f5f5f5;
+}
+
+.project-description {
+    margin-bottom: 50px;
+    color: #d1e0ff;
+    z-index: 3;
+}
+
+.content-btn {
+    padding: 12px 40px;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 0px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0px;
+    margin-bottom: 0px;
+}
+
+.content-btn:hover {
+    background-color: #3367d6;
+    transform: scaleY(1.1);
+}
+
+.project-section:nth-child(even) {
+    flex-direction: row-reverse;
+}
