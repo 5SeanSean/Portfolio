@@ -84,7 +84,7 @@ h1 {
     }
 }
 
-/* Right-side info panel */
+/* Updated Right-side info panel styles */
 .info-panel {
     position: absolute;
     top: 0;
@@ -99,8 +99,9 @@ h1 {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Individual info cards */
+/* Updated Individual info cards */
 .info-card {
+    position: relative;
     flex: 1;
     padding: 1.5rem 1.5rem 1.5rem 7rem;
     font-size: 10rem;
@@ -108,11 +109,11 @@ h1 {
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
-    position: relative;
     overflow: hidden;
+    background: rgba(0, 0, 0, 0.4);
 }
 
-/* Arrow container */
+/* Updated Arrow container - same for all cards */
 .info-card-button-container {
     position: absolute;
     left: 0rem;
@@ -122,7 +123,7 @@ h1 {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 0px;
     overflow: hidden;
 }
@@ -140,103 +141,87 @@ h1 {
 .info-card-image-btn {
     position: absolute;
     left: 0;
-    width: 20%;
-    height: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left center;
     opacity: 0;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
-    background-color: white;
+    background-color: transparent;
+    z-index: 1;
+    overflow: hidden;
 }
 
-/* ===== FIRST CARD (ORIGINAL HOVER EFFECT) ===== */
-.info-card:first-child:hover .info-card-button-container {
+/* Updated hover effects for ALL cards */
+.info-card:hover .info-card-button-container {
     width: 100%;
-    background: rgba(255, 255, 255, 0.2);
+    
 }
 
-.info-card:first-child:hover .info-card-button-container::before {
+.info-card:hover .info-card-button-container::before {
     opacity: 0;
     transform: translateX(20px);
 }
 
-.info-card:first-child:hover .info-card-image-btn {
-    display: none;
+.info-card:hover {
+    background: rgba(0, 0, 0, 0.9);
 }
 
-/* ===== OTHER CARDS (SQUARE EXPANSION EFFECT) ===== */
-.info-card:not(:first-child):hover .info-card-button-container {
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.info-card:not(:first-child):hover .info-card-button-container::before {
-    opacity: 0;
-    transform: translateX(20px);
-}
-
+/* Specific styles for non-first cards to maintain their special effects */
 .info-card:not(:first-child):hover .info-card-image-btn {
     opacity: 1;
-    width: 100px;
-    height: 100px;
-    left: 2rem;
-    background-size: contain;
-    background-color: transparent;
+    width: calc(100% - 3rem);
+    height: 80%;
+    left: 1.5rem;
 }
 
 /* Updated Text Transition Effects */
 .info-card:not(:first-child) p {
-  transition: all 0.3s ease;
-  position: relative;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
 .info-card:not(:first-child):hover p {
-  opacity: 0;
-  transform: translateX(20px);
-  position: absolute;
+    opacity: 0;
+    transform: translateX(10px);
+    position: absolute;
 }
 
+/* Keep the hover text effects for specific cards */
 .info-card:nth-child(2):hover::after {
-  content: "Google Cybersecurity Certification";
-  position: absolute;
-  right: 2rem;
-  font-size: 1.5rem;
-  color: white;
-  text-shadow: 
-      1px 1px 2px #000,
-      -1px -1px 2px #000;
-  opacity: 0;
-  animation: fadeIn 0.3s ease 0.3s forwards;
+    content: "Google Cybersecurity Certification";
+    position: absolute;
+    left: 50%;
+    right: 2rem;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 
+        1px 1px 2px #000,
+        -1px -1px 2px #000;
+    opacity: 0;
+    animation: fadeIn 0.3s ease 0.3s forwards;
 }
 
 .info-card:nth-child(3):hover::after {
-  content: "Graphic Design Portfolio";
-  position: absolute;
-  right: 2rem;
-  font-size: 1.5rem;
-  color: white;
-  text-shadow: 
-      1px 1px 2px #000,
-      -1px -1px 2px #000;
-  opacity: 0;
-  animation: fadeIn 0.3s ease 0.3s forwards;
+    content: "Graphic Design Portfolio";
+    position: absolute;
+    left: 50%;
+    right: 2rem;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 
+        1px 1px 2px #000,
+        -1px -1px 2px #000;
+    opacity: 0;
+    animation: fadeIn 0.3s ease 0.3s forwards;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Shared hover state */
-.info-card:hover {
-    background: rgba(0, 0, 0, 0.6);
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 .info-card:last-child {
