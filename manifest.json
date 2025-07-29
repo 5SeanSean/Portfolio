@@ -1,10 +1,10 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Sean's Portfolio",
+  "name": "Sean's Portfolio",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "marquettelogo.png",
+      "sizes": "552x480",
       "type": "image/x-icon"
     },
     {
