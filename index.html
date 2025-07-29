@@ -19,6 +19,20 @@
     const Portfolio = () => {
       return (
         <div className="portfolio-container">
+          <div className="contact-info">
+          <a href="mailto:seanfromchicago@gmail.com" className="contact-link">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1280px-Gmail_icon_%282020%29.svg.png" alt="Email" />
+              <span>Email</span>
+          </a>
+    <a href="https://www.linkedin.com/in/sean-healy-019699222/" target="_blank" rel="noopener noreferrer" className="contact-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" />
+        <span>LinkedIn</span>
+    </a>
+    <a href="https://github.com/5seansean" target="_blank" rel="noopener noreferrer" className="contact-link">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" />
+        <span>GitHub</span>
+    </a>
+</div>
           <div className="header">
             <img src="./assets/halfshot.png" alt="Background" className="header-bg" />
             <img src="./assets/foreground.png" alt="Foreground" className="foreground-person" />
@@ -32,30 +46,35 @@
               <div className="info-card">
                 <p>Student at Marquette University Majoring in Computer Science/Minoring in Marketing expecting to graduate in 2027</p>
               </div>
-              <div className="info-card">
-                <div className="info-card-button-container">
+                <div className="info-card">
                   <a 
                     href="https://coursera.org/share/54db8a982d378cdeb253fec8df076ddd" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="info-card-image-btn" 
-                    style={{ backgroundImage: "url('assets/googlelogo.webp')" }}
                   ></a>
+                  <div className="info-card-button-container">
+                    <div 
+                      className="info-card-image-btn" 
+                      style={{ backgroundImage: "url('assets/googlelogo.webp')" }}
+                    ></div>
+                  </div>
+                  <p>Aspiring software engineer and cybersecurity professional</p>
                 </div>
-                <p>Aspiring software engineer and cybersecurity professional</p>
-              </div>
-              <div className="info-card">
-                <div className="info-card-button-container">
+
+                <div className="info-card">
                   <a 
                     href="https://drive.google.com/drive/folders/1Gbjx4ZPOtYPgTNbAqOgvyilLNbcfseRf?usp=drive_link" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="info-card-image-btn" 
-                    style={{ backgroundImage: "url('assets/drivelogo.png')" }}
                   ></a>
+                  <div className="info-card-button-container">
+                    <div 
+                      className="info-card-image-btn" 
+                      style={{ backgroundImage: "url('assets/drivelogo.png')" }}
+                    ></div>
+                  </div>
+                  <p>Graphic Design Intern for the Marquette Athletics Department</p>
                 </div>
-                <p>Graphic Design Intern for the Marquette Athletics Department</p>
-              </div>
             </div>
           </div>
           
