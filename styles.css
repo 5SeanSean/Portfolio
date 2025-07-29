@@ -146,7 +146,7 @@ h1 {
     position: absolute;
     top: 0;
     right: 0;
-    width: 33%;
+    width: 25%;
     height: 100%;
     z-index: 2;
     display: flex;
@@ -160,7 +160,7 @@ h1 {
 .info-card {
     position: relative;
     flex: 1;
-    padding: 1.5rem 1.5rem 1.5rem 7rem;
+    padding: 1.5rem 1rem 1.5rem 4rem;
     font-size: 10rem;
     display: flex;
     align-items: center;
@@ -236,7 +236,7 @@ h1 {
 }
 
 .info-card:nth-child(1):hover {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* Specific styles for non-first cards to maintain their special effects */
@@ -279,7 +279,7 @@ h1 {
 .info-card:nth-child(3):hover::after {
     content: "Graphic Design Portfolio";
     position: absolute;
-    left: 50%;
+    left: 60%;
     right: 2rem;
     font-size: 2rem;
     color: white;
