@@ -3,7 +3,7 @@
   "name": "Sean's Portfolio",
   "icons": [
     {
-      "src": "marquettelogo.png",
+      "src": "/marquettelogo.png",
       "sizes": "552x480",
       "type": "image/x-icon"
     },
