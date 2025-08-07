@@ -63,7 +63,7 @@ const Portfolio = () => {
         
         <div className="info-panel">
           <div className="info-card">
-            <p>Student at Marquette University Majoring in Computer Science/Minoring in Marketing expecting to graduate in 2027</p>
+            <p>Student at Marquette University Majoring in Computer Science / Minoring in Marketing expecting to graduate in 2027</p>
           </div>
           
           <div 
@@ -77,7 +77,7 @@ const Portfolio = () => {
               ></div>
             </div>
             <p className="info-card-main-text">Aspiring software engineer and cybersecurity professional</p>
-            <p className="info-card-alt-text">My Google/Coursera Cybersecurity Certificate</p>
+            <p className="info-card-alt-text">My Google / Coursera Cybersecurity Certificate</p>
           </div>
 
           <div 
