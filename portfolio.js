@@ -105,7 +105,7 @@ const Portfolio = () => {
           style={{ backgroundImage: "url('./assets/project1.png')" }}
         ></a>
         <div className="content-half">
-          <h2 className="project-title">Packet Sniffer Visualizer</h2>
+          <h2 className="project-title">PacketBracket</h2>
           <p className="project-description">
             Serves the function of aggregating and visualizing network traffic data.
             Utilizes React, Node.js, AMCHARTS, and third-party APIs to provide real-time data visualization
