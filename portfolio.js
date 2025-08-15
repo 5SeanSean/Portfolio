@@ -108,9 +108,9 @@ const Portfolio = () => {
           <h2 className="project-title">Packet Sniffer Visualizer</h2>
           <p className="project-description">
             Serves the function of aggregating and visualizing network traffic data.
-            Utilizes Node.js, AMCHARTS, and two third-party APIs to provide real-time data visualization
-            with sleek, interactive elements. Just upload a PCAP file, and the app will process the file, filter all the packets with 
-            public IP addresses, make API calls to get GeoLocation data on those IPs, and then display the data on either a 3D or 2D map.
+            Utilizes React, Node.js, AMCHARTS, and third-party APIs to provide real-time data visualization
+            with sleek, interactive elements. Just upload a packet capture file, and the app will process the file, filter all the packets with 
+            public IP addresses, make API calls to get geolocation and securitydata on those IPs, and then display the data on either a 3D or 2D map.
           </p>
           <a 
             href="https://github.com/5SeanSean/PacketBracket" 
