@@ -11,8 +11,12 @@ body {
     background-color: #1a3a6a;
 }
 
+.portfolio-container {
+    position: relative;
+}
+
 .header {
-    height: 75vh;
+    height: 100vh; /* Full viewport height */
     position: relative;
     color: white;
     overflow: hidden;
@@ -210,6 +214,9 @@ h1 {
     position: relative;
     z-index: 3;
     opacity: 1;
+    /* Constrain text width for better line breaks */
+    max-width: clamp(200px, 80%, 300px);
+    margin-right: auto;
 }
 
 .info-card:not(:first-child) .info-card-alt-text {
@@ -217,33 +224,37 @@ h1 {
     position: absolute;
     z-index: 3;
     opacity: 0;
-    transform: translateX(-10px);
-    left: 35%;
+    transform: translateX(-20px); /* Start further left for smoother animation */
+    left: 50%; /* Changed from 35% to 60% to position text to the right */
+    text-align: left; /* Align text to the right */
+    padding-right: 2rem; /* Add some padding from the right edge */
     
     top: 50%;
-    transform: translateY(-50%) translateX(-10px);
+    transform: translateY(-50%) translateX(-20px);
     color: #ffffff;
     font-weight: 500;
+    /* Constrain text width for better line breaks */
+    max-width: clamp(200px, 80%, 300px);
 }
 
 .info-card:not(:first-child):hover .info-card-main-text,
 .info-card:not(:first-child).expanded .info-card-main-text {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateX(20px); /* Match the distance of alt text animation */
 }
 
 .info-card:not(:first-child):hover .info-card-alt-text,
 .info-card:not(:first-child).expanded .info-card-alt-text {
     opacity: 1;
-    transform: translateY(-50%) translateX(0);
+    transform: translateY(-50%) translateX(0); /* Smooth slide in from left */
 }
 
 .info-card:last-child {
     border-bottom: none;
 }
 
+/* Updated info card text styles for better fitting */
 .info-card p {
-    font-size: 2rem;
     margin: 0;
     line-height: 1.4;
     text-shadow: 
@@ -251,6 +262,28 @@ h1 {
         -1px -1px 2px #000;
     z-index: 3;
     position: relative;
+    width: 100%; /* Ensure text takes full width */
+    overflow-wrap: break-word; /* Break words if needed */
+}
+
+.info-card:nth-child(1) p {
+    font-size: clamp(1rem, 1.5vw, 2rem); /* Responsive font size */
+}
+
+/* Larger text for the bottom two info cards */
+.info-card:not(:first-child) .info-card-main-text {
+    font-size: clamp(1.1rem, 1.6vw, 2.2rem); /* Increased from 1.3vw to 1.6vw */
+}
+
+.info-card:not(:first-child) .info-card-alt-text {
+    font-size: clamp(1.1rem, 1.6vw, 2.2rem); /* Increased from 1.3vw to 1.6vw */
+    width: auto; /* Allow natural width */
+    left: 50%; /* Position to the right */
+}
+
+.info-card:not(:first-child):hover .info-card-alt-text,
+.info-card:not(:first-child).expanded .info-card-alt-text {
+    transform: translateY(-50%) translateX(0);
 }
 
 .project-section {
@@ -261,6 +294,10 @@ h1 {
     z-index: 4;
     background-color: #1a3a6a;
     overflow: hidden;
+}
+
+.project-section:first-of-type {
+    margin-top: 0;
 }
 
 .image-half {
@@ -421,10 +458,12 @@ h1 {
     
     .info-card {
         padding: 1.5rem 1rem 1.5rem 3rem;
+        min-height: 120px; /* Ensure consistent height on mobile */
     }
     
     .info-card p {
-        font-size: 1rem;
+        font-size: 1.1rem; /* Slightly larger text on mobile */
+        max-width: 100% !important; /* Full width on mobile */
     }
     
     .info-card:not(:first-child) .info-card-alt-text {
@@ -432,7 +471,9 @@ h1 {
         top: 50%;
         transform: translateY(-50%) translateX(-50%);
         text-align: center;
-        width: auto;
+        width: 80%;
+        padding-right: 0; /* Remove right padding on mobile */
+        max-width: 90% !important; /* Allow more width on mobile */
     }
 
     .info-card:not(:first-child):hover .info-card-alt-text,
@@ -542,6 +583,11 @@ h1 {
     
     .info-card {
         padding: 1rem 1rem 1rem 2.5rem;
+        min-height: 100px; /* Slightly smaller minimum height on very small screens */
+    }
+    
+    .info-card p {
+        font-size: 1rem; /* Slightly larger text on very small screens */
     }
     
     .image-half {
