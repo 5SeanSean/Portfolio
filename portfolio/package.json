@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage": "https://5seansean.github.io/portfolio",
+  "homepage": "https://5seansean.github.io/Portfolio",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
