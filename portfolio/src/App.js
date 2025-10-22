@@ -1,5 +1,9 @@
+// App.js
+import React, { useState, useEffect } from 'react';
+import './styles.css';
+
 const Portfolio = () => {
-  const [expandedCard, setExpandedCard] = React.useState(null);
+  const [expandedCard, setExpandedCard] = useState(null);
 
   const handleCardClick = (cardIndex, link) => {
     // If it's the first card (index 0), just return (no functionality needed)
@@ -24,7 +28,7 @@ const Portfolio = () => {
   };
 
   // Close expanded card when clicking outside
-  React.useEffect(() => {
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (!event.target.closest('.info-card')) {
         setExpandedCard(null);
@@ -53,8 +57,8 @@ const Portfolio = () => {
       </div>
       
       <div className="header">
-        <img src="./assets/halfshot.png" alt="Background" className="header-bg" />
-        <img src="./assets/foreground.png" alt="Foreground" className="foreground-person" />
+        <img src="assets/halfshot.png" alt="Background" className="header-bg" />
+        <img src="assets/foreground.png" alt="Foreground" className="foreground-person" />
         <div className="header-overlay"></div>
         
         <div className="fixed-name-container animate__animated animate__bounce">
@@ -102,7 +106,7 @@ const Portfolio = () => {
           target="_blank" 
           rel="noopener noreferrer" 
           className="image-half" 
-          style={{ backgroundImage: "url('./assets/project1.png')" }}
+          style={{ backgroundImage: "url('assets/project1.png')" }}
         ></a>
         <div className="content-half">
           <h2 className="project-title">PacketBracket</h2>
@@ -129,7 +133,7 @@ const Portfolio = () => {
           target="_blank" 
           rel="noopener noreferrer" 
           className="image-half" 
-          style={{ backgroundImage: "url('./assets/project2.png')" }}
+          style={{ backgroundImage: "url('assets/project2.png')" }}
         ></a>
         <div className="content-half">
           <h2 className="project-title">Volcano Game</h2>
@@ -152,6 +156,4 @@ const Portfolio = () => {
   );
 };
 
-// Render the component
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Portfolio />);
+export default Portfolio;
